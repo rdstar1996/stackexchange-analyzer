@@ -1,0 +1,116 @@
+from logging import logMultiprocessing
+from pyspark.sql.types import StructType,StructField,LongType,StringType,BooleanType
+
+badges_schema=StructType(
+        [
+            StructField("UserId",LongType(),nullable=True),
+            StructField("Date",StringType(),nullable=True),
+            StructField("Name",StringType(),nullable=True),
+        ]
+    )
+comments_schema=StructType(
+    [
+        StructField("UserId",LongType(),nullable=True),
+        StructField("UserDisplayName",StringType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("Text",StringType(),nullable=True),
+        StructField("Score",LongType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True)
+    ]
+)
+
+postHistory_schema=StructType(
+    [
+        StructField("PostHistoryTypeId",LongType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("RevisionGUID",StringType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("UserId",LongType(),nullable=True),
+        StructField("UserDisplayName",StringType(),nullable=True),
+        StructField("Comment",StringType(),nullable=True),
+        StructField("Text",StringType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("CloseReasonId",StringType(),nullable=True)
+    ]
+)
+
+postLinks_schema=StructType(
+    [
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("LinkTypeId",LongType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("RelatedPostId",LongType(),nullable=True),
+        StructField("Value",StringType(),nullable=True)
+    ]
+)
+
+post_schema=StructType(
+    [
+        StructField("AcceptedAnswerId",LongType(),nullable=True),
+        StructField("AnswerCount",LongType(),nullable=True),
+        StructField("Body",StringType(),nullable=True),
+        StructField("ClosedDate",StringType(),nullable=True),
+        StructField("CommentCount",LongType(),nullable=True),
+        StructField("CommunityOwnedDate",StringType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("FavoriteCount",LongType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("LastActivityDate",StringType(),nullable=True),
+        StructField("LastEditDate",StringType(),nullable=True),
+        StructField("LastEditorDisplayName",StringType(),nullable=True),
+        StructField("LastEditorUserId",LongType(),nullable=True),
+        StructField("OwnerDisplayName",StringType(),nullable=True),
+        StructField("OwnerUserId",LongType(),nullable=True),
+        StructField("ParentId",LongType(),nullable=True),
+        StructField("PostTypeId",LongType(),nullable=True),
+        StructField("Score",LongType(),nullable=True),
+        StructField("Tags",StringType(),nullable=True),
+        StructField("Title",StringType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("ViewCount",LongType(),nullable=True)
+    ]
+)
+
+tags_schema=StructType(
+    [
+        StructField("Count",LongType(),nullable=True),
+        StructField("ExcerptPostId",LongType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("TagName",StringType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("WikiPostId",LongType(),nullable=True)
+    ]
+)
+
+users_schema=StructType(
+    [
+        StructField("AboutMe",StringType(),nullable=True),
+        StructField("AccountId",LongType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("DisplayName",StringType(),nullable=True),
+        StructField("DownVotes",LongType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("lastAccessDate",StringType(),nullable=True),
+        StructField("Location",StringType(),nullable=True),
+        StructField("ProfileImageUrl",StringType(),nullable=True),
+        StructField("Reputation",LongType(),nullable=True),
+        StructField("UpVotes",LongType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("Views",LongType(),nullable=True),
+        StructField("WebSiteUrl",StringType(),nullable=True)
+    ]
+)
+
+votes_schema=StructType(
+    [
+        StructField("BountyAmount",LongType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("Id",LongType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("UserId",LongType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("VoteTypeId",LongType(),nullable=True)
+    ]
+)
