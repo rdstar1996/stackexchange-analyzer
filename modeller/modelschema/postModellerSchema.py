@@ -1,0 +1,125 @@
+from tkinter import N
+from pyspark.sql.types import StructType,StructField, LongType,StringType
+
+postHistoryModel_schema=StructType(
+    [
+        StructField("Id",LongType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("AcceptedAnswerId",LongType(),nullable=True),
+        StructField("AnswerCount",LongType(),nullable=True),
+        StructField("Body",StringType(),nullable=True),
+        StructField("ClosedDate",StringType(),nullable=True),
+        StructField("CommentCount",LongType(),nullable=True),
+        StructField("CommunityOwnedDate",StringType(),nullable=True),
+        StructField("FavoriteCount",LongType(),nullable=True),
+        StructField("LastActivityDate",StringType(),nullable=True),
+        StructField("LastEditDate",StringType(),nullable=True),
+        StructField("LastEditorDisplayName",StringType(),nullable=True),
+        StructField("LastEditorUserId",LongType(),nullable=True),
+        StructField("OwnerDisplayName",StringType(),nullable=True),
+        StructField("OwnerUserId",LongType(),nullable=True),
+        StructField("ParentId",LongType(),nullable=True),
+        StructField("PostTypeId",LongType(),nullable=True),
+        StructField("Score",LongType(),nullable=True),
+        StructField("Tags",StringType(),nullable=True),
+        StructField("Title",StringType(),nullable=True),
+        StructField("ViewCount",LongType(),nullable=True),
+        StructField("PostHistoryTypeId",LongType(),nullable=True),
+        StructField("RevisionGUID",StringType(),nullable=True),
+        StructField("UserId",LongType(),nullable=True),
+        StructField("UserDisplayName",StringType(),nullable=True),
+        StructField("Comment",StringType(),nullable=True),
+        StructField("Text",StringType(),nullable=True),
+        StructField("CloseReasonId",StringType(),True),
+        StructField("CreationDate",StringType(),nullable=True)
+    ]
+)
+
+postLinks_schema=StructType(
+    [
+        StructField("Id",LongType(),nullable=True),
+        StructField("LinkTypeId",LongType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("RelatedPostId",LongType(),nullable=True),
+        StructField("AcceptedAnswerId",LongType(),nullable=True),
+        StructField("AnswerCount",LongType(),nullable=True),
+        StructField("Body",StringType(),nullable=True),
+        StructField("ClosedDate",StringType(),nullable=True),
+        StructField("CommentCount",LongType(),nullable=True),
+        StructField("CommunityOwnedDate",StringType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("FavoriteCount",LongType(),nullable=True),
+        StructField("LastActivityDate",StringType(),nullable=True),
+        StructField("LastEditDate",StringType(),nullable=True),
+        StructField("LastEditorDisplayName",StringType(),nullable=True),
+        StructField("LastEditorUserId",LongType(),nullable=True),
+        StructField("OwnerDisplayName",StringType(),nullable=True),
+        StructField("OwnerUserId",LongType(),nullable=True),
+        StructField("ParentId",LongType(),nullable=True),
+        StructField("PostTypeId",LongType(),nullable=True),
+        StructField("Score",LongType(),nullable=True),
+        StructField("Tags",StringType(),nullable=True),
+        StructField("Title",StringType(),nullable=True),
+        StructField("ViewCount",LongType(),nullable=True)
+    ]
+)
+
+postComments_schema=StructType(
+    [ 
+        StructField("Id",LongType(),nullable=True),
+        StructField("UserId",LongType(),nullable=True),
+        StructField("UserDisplayName",StringType(),nullable=True),
+        StructField("PostId",LongType(),nullable=True),
+        StructField("Text",StringType(),nullable=True),
+        StructField("CommentScore",LongType(),nullable=True),
+        StructField("AcceptedAnswerId",LongType(),nullable=True),
+        StructField("AnswerCount",LongType(),nullable=True),
+        StructField("Body",StringType(),nullable=True),
+        StructField("ClosedDate",StringType(),nullable=True),
+        StructField("CommentCount",LongType(),nullable=True),
+        StructField("CommunityOwnedDate",StringType(),nullable=True),
+        StructField("CreationDate",StringType(),nullable=True),
+        StructField("FavoriteCount",LongType(),nullable=True),
+        StructField("LastActivityDate",StringType(),nullable=True),
+        StructField("LastEditDate",StringType(),nullable=True),
+        StructField("LastEditorDisplayName",StringType(),nullable=True),
+        StructField("LastEditorUserId",LongType(),nullable=True),
+        StructField("OwnerDisplayName",StringType(),nullable=True),
+        StructField("OwnerUserId",LongType(),nullable=True),
+        StructField("ParentId",LongType(),nullable=True),
+        StructField("PostTypeId",LongType(),nullable=True),
+        StructField("Score",LongType(),nullable=True),
+        StructField("Tags",StringType(),nullable=True),
+        StructField("Title",StringType(),nullable=True),
+        StructField("Value",StringType(),nullable=True),
+        StructField("ViewCount",LongType(),nullable=True)
+    ]
+)
+
+postVotes_schema=StructType([
+    StructField("Id",LongType(),nullable=True),
+    StructField("BountyAmount",LongType(),nullable=True),
+    StructField("PostId",LongType(),nullable=True),
+    StructField("UserId",LongType(),nullable=True),
+    StructField("VoteTypeId",LongType(),nullable=True),
+    StructField("AcceptedAnswerId",LongType(),nullable=True),
+    StructField("AnswerCount",LongType(),nullable=True),
+    StructField("Body",StringType(),nullable=True),
+    StructField("ClosedDate",StringType(),nullable=True),
+    StructField("CommentCount",LongType(),nullable=True),
+    StructField("CommunityOwnedDate",StringType(),nullable=True),
+    StructField("CreationDate",StringType(),nullable=True),
+    StructField("FavoriteCount",LongType(),nullable=True),
+    StructField("LastActivityDate",StringType(),nullable=True),
+    StructField("LastEditDate",StringType(),nullable=True),
+    StructField("LastEditorDisplayName",StringType(),nullable=True),
+    StructField("LastEditorUserId",LongType(),nullable=True),
+    StructField("OwnerDisplayName",LongType(),nullable=True),
+    StructField("OwnerUserId",LongType(),nullable=True),
+    StructField("ParentId",LongType(),nullable=True),
+    StructField("PostTypeId",LongType(),nullable=True),
+    StructField("Score",LongType(),nullable=True),
+    StructField("Tags",StringType(),nullable=True),
+    StructField("Title",StringType(),nullable=True),
+    StructField("ViewCount",LongType(),nullable=True)
+])

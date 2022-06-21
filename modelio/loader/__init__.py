@@ -1,1 +1,1 @@
-from .batchXMLDataLoader import *
+from .badgesXMLDataLoader import *
