@@ -1,0 +1,7 @@
+{
+    "sparkConfigs":{
+        "spark.app.name":"stackexchange-analyzer",
+        "spark.history.fs.logDirectory":"file:///E:/programming/python_non_ML/DE_projects/stack-analyzer-event-log/",
+        "spark.eventLog.dir":"file:///E:/programming/python_non_ML/DE_projects/stack-analyzer-event-log/"
+    }
+}
