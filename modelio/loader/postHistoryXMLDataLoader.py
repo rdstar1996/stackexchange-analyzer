@@ -27,11 +27,7 @@ def loadPostHistoryXMLData(xmlPath:str) -> DataFrame:
     if not os.path.exists(filePath):
         raise FileNotFoundError
         
-    spark=(SparkSession
-    .builder
-    .appName("stackexchange-analyzer")
-    .getOrCreate()
-    )
+    spark=SparkSession.builder.getOrCreate()
 
     # read the xml file
     postHistoryRawDF:DataFrame = (
