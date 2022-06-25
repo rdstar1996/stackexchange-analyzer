@@ -10,5 +10,5 @@ def _readConfigFileData()->dict:
 
 def getSparkFromJson()->dict:
     jsonData=_readConfigFileData()
-    return jsonData["sparkConfigs"]
+    return jsonData.get("sparkConfigs",None)
 
