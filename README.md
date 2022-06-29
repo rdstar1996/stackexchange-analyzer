@@ -5,11 +5,11 @@ The idea behind this project is to design a salable modular ETL pipeline using p
 The project uses open source [stack overflow data](https://archive.org/details/stackexchange) to process the raw data into meaningful information which can further used for analytics. 
 Most of the concepts in this project is based from the book [Learn Spark 2.0 Databricks version](https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf).
 
-The designing aspect of the project is based on the git hub repo:[stackexchnage-spark-scala-alayzer](https://github.com/prompt-spark/stackexchange-spark-scala-analyser)
+The original designing aspect of the project is based on the git hub repo:[stackexchnage-spark-scala-alayzer](https://github.com/prompt-spark/stackexchange-spark-scala-analyser)
 
 ## Prerequisite for the project(Windows10 OS)
 - Download [python](https://www.python.org/downloads/) from here install. 
-- Download spark spark-2.3.0-bin-hadoop2.7 from [Download Spark](https://spark.apache.org/downloads.html) in the directory  *C:\spark*.
+- Download spark spark-2.3.0-bin-hadoop2.7 from [Download Spark](https://spark.apache.org/downloads.html) in the directory  *C:\spark* , the reason why I used this version so that the project can also work in a standalone hadoop cluster created using **cloudera HDP sandbox 2.6** which includes spark 2.3.0.
 - For installation of JAVA and setting up the environment variables on windows 10, follow the steps from [here](https://sparkbyexamples.com/spark/apache-spark-installation-on-windows/)
 - Create a environment variable PYTHONPATH and add the values:
     - *C:\spark\spark-2.3.0-bin-hadoop2.7\python*
@@ -61,6 +61,12 @@ The designing aspect of the project is based on the git hub repo:[stackexchnage-
     }
 }
 ```
+## Future work
+- Build a visualization dashboard from the processed data.
+- Setting up and configuring the project in hadoop cluster using **Cloudera HDP 2.6**
+- Bring new functionality, to get more info from stackoverflow data.
+- Add testcase.
+
 
 
 
